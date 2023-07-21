@@ -16,7 +16,12 @@ body {
     display: flex;
     flex-direction: column;
     width: 500px;
-    height: auto;
+    height: 450px;
+    margin-left: 50px;
+}
+
+.container div {
+    flex: 1;
 }
 
 .row {
@@ -28,7 +33,7 @@ body {
 .cell {
     /* border: red solid; */
     margin: 0.5;
-    flex: 1;
+    flex: 1 ;
 }
 
 h1 {
@@ -39,5 +44,25 @@ h1 {
 
 .main {
     display: flex;
-    gap: 50px
+    
+}
+
+.controls {
+    display: flex;
+    flex-direction: column;
+    
+    justify-content: space-around;
+    
+}
+
+.controls button {
+    width: 150px;
+    height: auto;
+    font-size: 25px;
+    border-radius: 10px;
+}
+
+.controls button:hover {
+    transform: scale(1.05);
+    background-color: burlywood;
 }

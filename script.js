@@ -27,6 +27,8 @@ createGrid(10 , 10);
 let cells = document.querySelectorAll('.cell');
 let eraser = document.querySelector('.eraser')
 let colors = document.querySelector('.color')
+let clear = document.querySelector('.clear')
+
 
 
 
@@ -39,6 +41,10 @@ colors.addEventListener('click' , () => {
         });
     });
 })
+
+
+
+
 
 // function color() {
 //     cells.forEach((cell) => {
@@ -60,6 +66,14 @@ eraser.addEventListener('click' , () => {
         });
     });
 })
+
+
+clear.addEventListener('click' , () => {
+    cells.forEach((cell) => {
+        cell.style.backgroundColor = "white"
+    });
+})
+
 
 
 
