@@ -15,38 +15,56 @@ function createGrid (row , col) {
         for (let j = 0 ; j < col ; j++)
         {
             let cell = document.createElement('div')
-            // cell.textContent = j + 1;
             cell.classList.add('cell')
             rows.appendChild(cell)
         }
     }
 }
 
-createGrid(10 , 10);
+// createGrid(10 , 10);
 
 let cells = document.querySelectorAll('.cell');
 let eraser = document.querySelector('.eraser')
 let colors = document.querySelector('.color')
 let clear = document.querySelector('.clear')
 let rainBow = document.querySelector('.rainbow')
+let color1 = document.querySelector('.picker')
+let label = document.querySelector('label')
+let range = document.querySelector('.range')
 let flag = false
+label.textContent = `Grid Size: ${range.value} X ${range.value}` 
 
+
+range.addEventListener('input' , () => {
+    label.textContent = `Grid Size: ${range.value} X ${range.value}`
+    console.log(range.value)
+    createGrid(range.value , range.value); 
+})
+
+
+
+
+
+color1.addEventListener('change' , () => {
+    colors.style.backgroundColor = color1.value
+colors.style.color = 'white'
+})
 
 
 colors.addEventListener('click' , () => {
-
+    
     cells.forEach((cell)  => {
        
             cell.addEventListener('mousedown' , () => {
             
                 flag = true
-                cell.style.backgroundColor = 'black'            
+                cell.style.backgroundColor = color1.value           
            
         });
 
         cell.addEventListener('mouseover' , () => {
             
-            if(flag) cell.style.backgroundColor = 'black'           
+            if(flag) cell.style.backgroundColor = color1.value           
        
     });
 
@@ -58,24 +76,31 @@ colors.addEventListener('click' , () => {
 
       
     });
-})
+ } )
 
 
 eraser.addEventListener('click' , () => {
+    
+
     cells.forEach((cell) => {
         cell.addEventListener('mousedown' , () => {
             flag = true
             cell.style.backgroundColor = 'white'
+            
         });
 
         cell.addEventListener('mouseover' , () => {
             if(flag) cell.style.backgroundColor = 'white'
+            
+
         });
 
         cell.addEventListener('mouseup' , () => {
             flag = false
         });
     });
+
+    
 });
 
 
@@ -117,7 +142,10 @@ rainBow.addEventListener('click' , () => {
     })
 })
 
-// rgb(generateRandomColor , generateRandomColor , generateRandomColor)
+
+function deleteGrid() {
+    
+}
 
 
 

@@ -26,12 +26,10 @@ body {
 
 .row {
     border: black solid;
-    /* justify-content: space-between; */
     background-color: white;
 }
 
 .cell {
-    /* border: red solid; */
     margin: 0.5;
     flex: 1 ;
 }
@@ -39,7 +37,6 @@ body {
 h1 {
     font-size: 80px;
     font-weight: bold;
-    /* color: white; */
 }
 
 .main {
@@ -61,10 +58,28 @@ h1 {
     font-size: 25px;
     border-radius: 10px;
     padding: 20px;
-    /* background-color: rgb(55, 88, 57); */
 }
 
 .controls button:hover {
     transform: scale(1.05);
     background-color: burlywood;
+}
+
+input[type=color]
+{
+    width: 100px;
+    height: 100px;
+    align-self: center;
+    background-color: #85e0e0; 
+    border: none;
+}
+
+input[type=color]:hover {
+    transform: scale(1.05);
+}
+
+label {
+    font-size: 24px;
+    font-weight: bold;
+    
 }
