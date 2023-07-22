@@ -25,13 +25,13 @@ body {
 }
 
 .row {
-    border: black solid;
     background-color: white;
 }
 
 .cell {
     margin: 0.5;
     flex: 1 ;
+    /* border: solid; */
 }
 
 h1 {
@@ -82,4 +82,25 @@ label {
     font-size: 24px;
     font-weight: bold;
     
+}
+
+p {
+    font-size: 30px;
+
+}
+
+#name1 {
+    font-size: 40px;
+    color: yellow;
+}
+
+img:hover {
+    opacity: 0.8;
+    transform: rotate(30deg);
+    border-radius: 50%;
+   
+}
+
+img {
+    border-radius: 20px;
 }
