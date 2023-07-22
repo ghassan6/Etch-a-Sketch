@@ -15,7 +15,7 @@ function createGrid (row , col) {
         for (let j = 0 ; j < col ; j++)
         {
             let cell = document.createElement('div')
-            cell.textContent = j + 1;
+            // cell.textContent = j + 1;
             cell.classList.add('cell')
             rows.appendChild(cell)
         }
@@ -28,44 +28,55 @@ let cells = document.querySelectorAll('.cell');
 let eraser = document.querySelector('.eraser')
 let colors = document.querySelector('.color')
 let clear = document.querySelector('.clear')
-
-
+let flag = false
 
 
 colors.addEventListener('click' , () => {
-    cells.forEach((cell) => {
 
-        cell.addEventListener('mouseover' , () =>
-        {
-            cell.style.backgroundColor = 'black'
+    cells.forEach((cell)  => {
+       
+            cell.addEventListener('mousedown' , () => {
+            
+                flag = true
+                cell.style.backgroundColor = 'black'            
+           
         });
+
+        cell.addEventListener('mouseover' , () => {
+            
+            if(flag) cell.style.backgroundColor = 'black'           
+       
+    });
+
+    cell.addEventListener('mouseup' , () => {
+            
+        flag = false           
+   
+});
+
+      
     });
 })
-
-
-
-
-
-// function color() {
-//     cells.forEach((cell) => {
-
-//         cell.addEventListener('mouseover' , () =>
-//         {
-//             cell.style.backgroundColor = 'black'
-//         });
-//     });
-// }
 
 
 eraser.addEventListener('click' , () => {
     cells.forEach((cell) => {
-
-        cell.addEventListener('mouseover' , () =>
-        {
+        cell.addEventListener('mousedown' , () => {
+            flag = true
             cell.style.backgroundColor = 'white'
         });
+
+        cell.addEventListener('mouseover' , () => {
+            if(flag) cell.style.backgroundColor = 'white'
+        });
+
+        cell.addEventListener('mouseup' , () => {
+            flag = false
+        });
     });
-})
+});
+
+
 
 
 clear.addEventListener('click' , () => {
