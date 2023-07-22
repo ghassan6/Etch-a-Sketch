@@ -28,7 +28,9 @@ let cells = document.querySelectorAll('.cell');
 let eraser = document.querySelector('.eraser')
 let colors = document.querySelector('.color')
 let clear = document.querySelector('.clear')
+let rainBow = document.querySelector('.rainbow')
 let flag = false
+
 
 
 colors.addEventListener('click' , () => {
@@ -84,6 +86,38 @@ clear.addEventListener('click' , () => {
         cell.style.backgroundColor = "white"
     });
 })
+
+
+rainBow.addEventListener('click' , () => {
+    let r, g , b , col;
+    cells.forEach((cell) => {
+        cell.addEventListener('mousedown' , () => {
+             r = Math.floor(Math.random() * 256)
+             g = Math.floor(Math.random() * 256)
+             b = Math.floor(Math.random() * 256)
+             col = "rgb(" + r + "," + g + "," + b + ")";
+            flag = true
+            cell.style.backgroundColor = col
+
+        })
+
+        cell.addEventListener('mouseover' , () => {
+            if(flag) {
+                r = Math.floor(Math.random() * 256)
+                g = Math.floor(Math.random() * 256)
+                b = Math.floor(Math.random() * 256)
+                col = "rgb(" + r + "," + g + "," + b + ")";
+                cell.style.backgroundColor = col
+            }
+        })
+
+        cell.addEventListener('mouseup' , () => {
+            flag = false
+        })
+    })
+})
+
+// rgb(generateRandomColor , generateRandomColor , generateRandomColor)
 
 
 
